@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>amis app 模式</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link
+      type="image/x-icon"
+      rel="shortcut icon"
+      href="/amis/static/favicon_b3b0647.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />        <script type="module">
+      let theme = localStorage.getItem('amis-theme') || 'cxd';
+      if (theme === 'default') {
+        theme = 'cxd';
+      }
+
+      ['ang', 'cxd', 'dark', 'antd'].forEach(key => {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('title', key);
+        if (theme !== key) {
+          link.setAttribute('disabled', 'disabled');
+        }
+        link.setAttribute(
+          'href',
+          new URL(
+            `../../packages/amis-ui/scss/themes/${key}.scss`,
+            import.meta.url
+          ).href
+        );
+        document.head.appendChild(link);
+      });
+    </script>
+  
+    <link rel="stylesheet" href="/amis/pkg/style_5a6cd31.css" />
+    <link
+      rel="stylesheet" href="/amis/pkg/npm_928c470.css" />
+    <style>
+      .app-wrapper,
+      .schema-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+</head>
+
+  <body>
+    <div id="root" class="app-wrapper"></div>
+    <script type="module">
+      import {bootstrap} from './index.jsx';
+      const initialState = {};
+      bootstrap(document.getElementById('root'), initialState);
+    </script>
+  
+<script rel="stylesheet" src="/amis/packages/amis-ui/scss/helper.css_11b972d.js"></script>
+</body>
+</html>
